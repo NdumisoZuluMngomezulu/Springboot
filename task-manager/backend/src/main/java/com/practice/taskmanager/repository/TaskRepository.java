@@ -1,5 +1,9 @@
 package com.practice.taskmanager.repository;
 
-public class TaskRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.practice.taskmanager.model.Task;
+
+public interface TaskRepository extends JpaRepository<Task, Integer> {
     
 }
