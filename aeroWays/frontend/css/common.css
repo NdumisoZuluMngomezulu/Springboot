@@ -1,0 +1,8 @@
+/* Shared Styles */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.nav-link {
+  transition: all 0.2s ease-in-out;
+}

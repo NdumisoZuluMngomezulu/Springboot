@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaBank - Access Your Portal</title>
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans antialiased">
+
+  <!-- Shared Header -->
+  <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-500/30">
+          N
+        </div>
+        <span class="text-xl font-bold tracking-tight text-white">Nova<span class="text-indigo-400">Bank</span></span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-1">
+        <a href="index.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-white bg-indigo-600/20 border border-indigo-500/30">Auth</a>
+        <a href="accounts.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/60 transition">Accounts</a>
+        <a href="transactions.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/60 transition">Transactions</a>
+        <a href="cards.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/60 transition">Cards</a>
+        <a href="settings.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/60 transition">Settings</a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <div class="text-right hidden sm:block">
+          <p id="profile-name" class="text-sm font-medium text-slate-200">Demo User</p>
+          <p class="text-xs text-emerald-400 flex items-center justify-end gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Online
+          </p>
+        </div>
+        <div class="w-9 h-9 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 font-semibold text-sm">
+          DU
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Auth Form Section -->
+  <main class="flex-1 flex items-center justify-center p-4 relative overflow-hidden">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="w-full max-w-md bg-slate-900/90 border border-slate-800/80 rounded-2xl shadow-2xl backdrop-blur-xl p-8 z-10 relative">
+      <div id="auth-message" class="hidden mb-4 p-3 rounded-xl text-sm border"></div>
+
+      <div class="relative bg-slate-950/60 p-1 rounded-xl flex border border-slate-800/80 mb-6">
+        <button type="button" onclick="setAuthMode('login')" id="tab-login" class="flex-1 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-white bg-indigo-600 shadow-md">Sign In</button>
+        <button type="button" onclick="setAuthMode('register')" id="tab-register" class="flex-1 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-slate-400 hover:text-slate-200">Register</button>
+      </div>
+
+      <form id="auth-form" class="space-y-4">
+        <div id="name-field" class="hidden space-y-1.5">
+          <label class="text-xs font-semibold uppercase tracking-wider text-slate-400">Full Name</label>
+          <div class="relative">
+            <i class="fa-solid fa-user absolute left-3.5 top-3.5 text-slate-500 text-sm"></i>
+            <input type="text" id="fullName" placeholder="Jane Doe" class="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition text-sm">
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <label class="text-xs font-semibold uppercase tracking-wider text-slate-400">Email Address</label>
+          <div class="relative">
+            <i class="fa-solid fa-envelope absolute left-3.5 top-3.5 text-slate-500 text-sm"></i>
+            <input type="email" id="email" required placeholder="name@domain.com" class="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition text-sm">
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <label class="text-xs font-semibold uppercase tracking-wider text-slate-400">Password</label>
+          <div class="relative">
+            <i class="fa-solid fa-lock absolute left-3.5 top-3.5 text-slate-500 text-sm"></i>
+            <input type="password" id="password" required autocomplete="current-password" placeholder="••••••••" class="w-full pl-10 pr-10 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition text-sm">
+            <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3.5 top-3.5 text-slate-500 hover:text-slate-300 text-sm">
+              <i id="password-toggle-icon" class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" id="auth-submit" class="w-full py-3 mt-2 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-semibold rounded-xl shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center space-x-2 text-sm">
+          <span>Sign in securely</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <script src="scripts/common.js"></script>
+  <script src="scripts/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+/* Transaction Table Hover Effects */
+tbody tr {
+  transition: background-color 0.15s ease;
+}
+tbody tr:hover {
+  background-color: rgba(30, 41, 59, 0.5);
+}
