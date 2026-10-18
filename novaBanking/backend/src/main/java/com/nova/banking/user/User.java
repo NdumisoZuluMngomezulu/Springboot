@@ -1,4 +1,4 @@
-package com.nova.banking.account;
+package com.nova.banking.user;
 
 import jakarta.persistence.*;
 import lombok.Getter;
