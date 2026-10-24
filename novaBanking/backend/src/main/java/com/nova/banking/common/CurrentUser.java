@@ -18,6 +18,6 @@ public class CurrentUser {
         }
 
         return users.findByEmailIgnoreCase(authentication.getName())
-                .orElseThrow(() -> new ApiException(HttpStatus.UNAUTHORIZED, "User no longer exists"));
+                .orElseThrow(() -> new ApiException(HttpStatus.UNAUTHORIZED, "User does not exists"));
     }
 }

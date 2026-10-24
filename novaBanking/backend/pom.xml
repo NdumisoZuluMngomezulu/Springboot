@@ -60,35 +60,35 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <dependancy>
+  <dependency>
     <groupId>io.jsonwebtoken</groupId>
     <artifactId>jjwt-api</artifactId>
     <version>${jjwt.version}</version>
     <scope>runtime</scope>
-  </dependancy>
-  <dependancy>
+  </dependency>
+  <dependency>
     <groupId>io.jsonwebtoken</groupId>
     <artifactId>jjwt-impl</artifactId>
     <version>${jjwt.version}</version>
     <scope>runtime</scope>
-  </dependancy>
-  <dependancy>
+  </dependency>
+  <dependency>
     <groupId>io.jsonwebtoken</groupId>
     <artifactId>jjwt-jackson</artifactId>
     <version>${jjwt.version}</version>
     <scope>runtime</scope>
-  </dependancy>
-  <dependancy>
+  </dependency>
+  <dependency>
     <groupId>io.jsonwebtoken</groupId>
     <artifactId>jjwt-api</artifactId>
     <version>${jjwt.version}</version>
     <scope>runtime</scope>
-  </dependancy>
-  <dependancy>
+  </dependency>
+  <dependency>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok</artifactId>
     <optional>true</optional>
-  </dependancy>
+  </dependency>
   <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-test</artifactId>
