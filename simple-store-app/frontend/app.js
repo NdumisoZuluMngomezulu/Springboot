@@ -159,7 +159,6 @@ async function refresh() {
     return changed;
 }
 
-
 function renderCart() {
     const rows = Object.entries(cart).map(([id, q]) => ({
         p: findProduct(id),
@@ -171,9 +170,10 @@ function renderCart() {
     <li>
         <span>${esc(p.name)}</span><span>${money(p.price * q)}</span>
         <span class="qty"><button data-dec="${esc(p.id)}" aria-label="Remove one">-</button>${q}<button data-inc="${esc(p.id)}" aira-label="Add one">+</button></span>
-    </li>`) 
+    </li>`).join("")
     : "<li>Your cart is empty. Add something from the shop.</li>";
-    $()
+    $("#toCheckout").hidden = !rows.length;
+    if (!rows.length) $("#checkout").hidden = true;
 }
 
 
